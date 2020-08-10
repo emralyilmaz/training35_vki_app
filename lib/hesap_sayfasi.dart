@@ -18,6 +18,9 @@ class _HesaplamaSayfasiState extends State<HesaplamaSayfasi> {
   Color kadinCardRenk = inaktifCardRenk;
 
   Cinsiyet secilmisCinsiyet;
+  int boy = 180;
+  int kilo = 30;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,7 +86,7 @@ class _HesaplamaSayfasiState extends State<HesaplamaSayfasi> {
                       crossAxisAlignment: CrossAxisAlignment.baseline,
                       textBaseline: TextBaseline.alphabetic,
                       children: <Widget>[
-                        Text("180",
+                        Text(boy.toString(),
                             style: TextStyle(
                                 color: Color.fromRGBO(77, 59, 59, 1),
                                 fontSize: 50,
@@ -94,6 +97,18 @@ class _HesaplamaSayfasiState extends State<HesaplamaSayfasi> {
                                 fontSize: 40,
                                 fontWeight: FontWeight.normal)),
                       ],
+                    ),
+                    Slider(
+                      value: boy.toDouble(),
+                      min: 50,
+                      max: 250,
+                      activeColor: Color.fromRGBO(77, 59, 59, 1),
+                      inactiveColor: Color.fromRGBO(245, 224, 211, 1),
+                      onChanged: (double yeniDeger) {
+                        setState(() {
+                          boy = yeniDeger.round();
+                        });
+                      },
                     )
                   ],
                 ),
@@ -105,6 +120,47 @@ class _HesaplamaSayfasiState extends State<HesaplamaSayfasi> {
                   Expanded(
                     child: HesapCard(
                       renk: Color.fromRGBO(255, 184, 140, 1),
+                      cardChild: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            "KİLO",
+                            style: TextStyle(
+                                color: Color.fromRGBO(77, 59, 59, 1),
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(kilo.toString(),
+                              style: TextStyle(
+                                  color: Color.fromRGBO(77, 59, 59, 1),
+                                  fontSize: 50,
+                                  fontWeight: FontWeight.bold)),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              FloatingActionButton(
+                                  backgroundColor:
+                                      Color.fromRGBO(245, 224, 211, 1),
+                                  child: Icon(
+                                    Icons.add,
+                                    color: Color.fromRGBO(222, 98, 98, 1),
+                                  ),
+                                  onPressed: () {}),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              FloatingActionButton(
+                                  backgroundColor:
+                                      Color.fromRGBO(245, 224, 211, 1),
+                                  child: Icon(
+                                    Icons.remove,
+                                    color: Color.fromRGBO(222, 98, 98, 1),
+                                  ),
+                                  onPressed: () {}),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   Expanded(
