@@ -18,54 +18,34 @@ class _HesaplamaSayfasiState extends State<HesaplamaSayfasi> {
               child: Row(
                 children: <Widget>[
                   Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(255, 208, 179, 1),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      margin: EdgeInsets.all(15),
+                    child: HesapCard(
+                      renk: Color.fromRGBO(255, 208, 179, 1),
                     ),
                   ),
                   Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(255, 208, 179, 1),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      margin: EdgeInsets.all(15),
+                    child: HesapCard(
+                      renk: Color.fromRGBO(255, 208, 179, 1),
                     ),
                   ),
                 ],
               ),
             ),
             Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Color.fromRGBO(255, 208, 179, 1),
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                margin: EdgeInsets.all(15),
+              child: HesapCard(
+                renk: Color.fromRGBO(255, 208, 179, 1),
               ),
             ),
             Expanded(
               child: Row(
                 children: <Widget>[
                   Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(255, 208, 179, 1),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      margin: EdgeInsets.all(15),
+                    child: HesapCard(
+                      renk: Color.fromRGBO(255, 208, 179, 1),
                     ),
                   ),
                   Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(255, 208, 179, 1),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      margin: EdgeInsets.all(15),
+                    child: HesapCard(
+                      renk: Color.fromRGBO(255, 208, 179, 1),
                     ),
                   ),
                 ],
@@ -73,5 +53,23 @@ class _HesaplamaSayfasiState extends State<HesaplamaSayfasi> {
             ),
           ],
         ));
+  }
+}
+
+class HesapCard extends StatelessWidget {
+  HesapCard(
+      {@required
+          this.renk}); // @required demekle renki zorunlu olarak sormasını sağlamak
+  final Color renk;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: renk,
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      margin: EdgeInsets.all(15),
+    );
   }
 }
