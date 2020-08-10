@@ -25,6 +25,7 @@ class _HesaplamaSayfasiState extends State<HesaplamaSayfasi> {
           title: Center(child: Text("VKI Hesapla")),
         ),
         body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Expanded(
               child: Row(
@@ -67,6 +68,35 @@ class _HesaplamaSayfasiState extends State<HesaplamaSayfasi> {
             Expanded(
               child: HesapCard(
                 renk: Color.fromRGBO(255, 184, 140, 1),
+                cardChild: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      "BOY",
+                      style: TextStyle(
+                          color: Color.fromRGBO(77, 59, 59, 1),
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textBaseline: TextBaseline.alphabetic,
+                      children: <Widget>[
+                        Text("180",
+                            style: TextStyle(
+                                color: Color.fromRGBO(77, 59, 59, 1),
+                                fontSize: 50,
+                                fontWeight: FontWeight.bold)),
+                        Text("cm",
+                            style: TextStyle(
+                                color: Color.fromRGBO(77, 59, 59, 1),
+                                fontSize: 40,
+                                fontWeight: FontWeight.normal)),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
             Expanded(
