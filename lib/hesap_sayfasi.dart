@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'hesap_card.dart';
 import 'icon_content.dart';
+import 'button_icon.dart';
 
 const aktifCardRenk = Color.fromRGBO(245, 224, 211, 1);
 const inaktifCardRenk = Color.fromRGBO(255, 184, 140, 1);
@@ -20,6 +21,7 @@ class _HesaplamaSayfasiState extends State<HesaplamaSayfasi> {
   Cinsiyet secilmisCinsiyet;
   int boy = 180;
   int kilo = 30;
+  int yas = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -133,30 +135,30 @@ class _HesaplamaSayfasiState extends State<HesaplamaSayfasi> {
                           Text(kilo.toString(),
                               style: TextStyle(
                                   color: Color.fromRGBO(77, 59, 59, 1),
-                                  fontSize: 50,
+                                  fontSize: 40,
                                   fontWeight: FontWeight.bold)),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              FloatingActionButton(
-                                  backgroundColor:
-                                      Color.fromRGBO(245, 224, 211, 1),
-                                  child: Icon(
-                                    Icons.add,
-                                    color: Color.fromRGBO(222, 98, 98, 1),
-                                  ),
-                                  onPressed: () {}),
+                              IconButtonCustom(
+                                icon: FontAwesomeIcons.minus,
+                                onPressed: () {
+                                  setState(() {
+                                    kilo--;
+                                  });
+                                },
+                              ),
                               SizedBox(
                                 width: 10,
                               ),
-                              FloatingActionButton(
-                                  backgroundColor:
-                                      Color.fromRGBO(245, 224, 211, 1),
-                                  child: Icon(
-                                    Icons.remove,
-                                    color: Color.fromRGBO(222, 98, 98, 1),
-                                  ),
-                                  onPressed: () {}),
+                              IconButtonCustom(
+                                icon: FontAwesomeIcons.plus,
+                                onPressed: () {
+                                  setState(() {
+                                    kilo++;
+                                  });
+                                },
+                              ),
                             ],
                           )
                         ],
@@ -166,6 +168,47 @@ class _HesaplamaSayfasiState extends State<HesaplamaSayfasi> {
                   Expanded(
                     child: HesapCard(
                       renk: Color.fromRGBO(255, 184, 140, 1),
+                      cardChild: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            "YAŞ",
+                            style: TextStyle(
+                                color: Color.fromRGBO(77, 59, 59, 1),
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(yas.toString(),
+                              style: TextStyle(
+                                  color: Color.fromRGBO(77, 59, 59, 1),
+                                  fontSize: 40,
+                                  fontWeight: FontWeight.bold)),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              IconButtonCustom(
+                                icon: FontAwesomeIcons.minus,
+                                onPressed: () {
+                                  setState(() {
+                                    yas--;
+                                  });
+                                },
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              IconButtonCustom(
+                                icon: FontAwesomeIcons.plus,
+                                onPressed: () {
+                                  setState(() {
+                                    yas++;
+                                  });
+                                },
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ],
