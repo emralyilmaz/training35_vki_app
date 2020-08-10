@@ -6,6 +6,8 @@ import 'icon_content.dart';
 const aktifCardRenk = Color.fromRGBO(245, 224, 211, 1);
 const inaktifCardRenk = Color.fromRGBO(255, 184, 140, 1);
 
+enum Cinsiyet { erkek, kadin }
+
 class HesaplamaSayfasi extends StatefulWidget {
   @override
   _HesaplamaSayfasiState createState() => _HesaplamaSayfasiState();
@@ -15,26 +17,7 @@ class _HesaplamaSayfasiState extends State<HesaplamaSayfasi> {
   Color erkekCardRenk = inaktifCardRenk;
   Color kadinCardRenk = inaktifCardRenk;
 
-  void renkGuncelle(int cinsiyet) {
-    if (cinsiyet == 1) {
-      if (erkekCardRenk == inaktifCardRenk) {
-        erkekCardRenk = aktifCardRenk;
-        kadinCardRenk = inaktifCardRenk;
-      } else {
-        erkekCardRenk = inaktifCardRenk;
-      }
-    }
-
-    if (cinsiyet == 2) {
-      if (kadinCardRenk == inaktifCardRenk) {
-        kadinCardRenk = aktifCardRenk;
-        erkekCardRenk = inaktifCardRenk;
-      } else {
-        kadinCardRenk = inaktifCardRenk;
-      }
-    }
-  }
-
+  Cinsiyet secilmisCinsiyet;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,13 +32,14 @@ class _HesaplamaSayfasiState extends State<HesaplamaSayfasi> {
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        //bprint("Erkek Kart Tıklandı");
                         setState(() {
-                          renkGuncelle(1);
+                          secilmisCinsiyet = Cinsiyet.erkek;
                         });
                       },
                       child: HesapCard(
-                        renk: erkekCardRenk,
+                        renk: secilmisCinsiyet == Cinsiyet.erkek
+                            ? aktifCardRenk
+                            : inaktifCardRenk,
                         cardChild: IconContent(
                             icon: FontAwesomeIcons.mars, text: "ERKEK"),
                       ),
@@ -65,11 +49,13 @@ class _HesaplamaSayfasiState extends State<HesaplamaSayfasi> {
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
-                          renkGuncelle(2);
+                          secilmisCinsiyet = Cinsiyet.kadin;
                         });
                       },
                       child: HesapCard(
-                        renk: kadinCardRenk,
+                        renk: secilmisCinsiyet == Cinsiyet.kadin
+                            ? aktifCardRenk
+                            : inaktifCardRenk,
                         cardChild: IconContent(
                             icon: FontAwesomeIcons.venus, text: "KADIN"),
                       ),
