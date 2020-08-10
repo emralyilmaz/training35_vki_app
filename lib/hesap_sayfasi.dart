@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HesaplamaSayfasi extends StatefulWidget {
   @override
@@ -20,6 +21,22 @@ class _HesaplamaSayfasiState extends State<HesaplamaSayfasi> {
                   Expanded(
                     child: HesapCard(
                       renk: Color.fromRGBO(255, 208, 179, 1),
+                      cardChild: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Icon(FontAwesomeIcons.mars, size: 80.0),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Text(
+                            "ERKEK",
+                            style: TextStyle(
+                                color: Color.fromRGBO(77, 59, 59, 1),
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   Expanded(
@@ -58,10 +75,11 @@ class _HesaplamaSayfasiState extends State<HesaplamaSayfasi> {
 
 class HesapCard extends StatelessWidget {
   HesapCard(
-      {@required
-          this.renk}); // @required demekle renki zorunlu olarak sormasını sağlamak
+      {@required this.renk,
+      this.cardChild}); // @required demekle renki zorunlu olarak sormasını sağlamak
   final Color renk;
 
+  final Widget cardChild;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -70,6 +88,7 @@ class HesapCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.0),
       ),
       margin: EdgeInsets.all(15),
+      child: cardChild,
     );
   }
 }
