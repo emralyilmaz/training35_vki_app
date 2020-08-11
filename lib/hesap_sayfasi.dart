@@ -4,6 +4,8 @@ import 'package:training35_vki_app/sonuc_sayfasi.dart';
 import 'hesap_card.dart';
 import 'icon_content.dart';
 import 'button_icon.dart';
+import 'hesap_buton.dart';
+import 'sonuc_sayfasi.dart';
 
 const aktifCardRenk = Color.fromRGBO(245, 224, 211, 1);
 const inaktifCardRenk = Color.fromRGBO(255, 184, 140, 1);
@@ -222,27 +224,13 @@ class _HesaplamaSayfasiState extends State<HesaplamaSayfasi> {
                 ],
               ),
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return SonucSayfasi();
-                }));
-              },
-              child: Container(
-                child: Center(
-                  child: Text(
-                    "Hesapla",
-                    style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                        color: Color.fromRGBO(245, 224, 211, 1)),
-                  ),
-                ),
-                color: Color.fromRGBO(77, 59, 59, 1),
-                padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                width: double.infinity,
-              ),
-            )
+            HesapButon(
+                onTab: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return SonucSayfasi();
+                  }));
+                },
+                baslik: "Hesapla")
           ],
         ));
   }

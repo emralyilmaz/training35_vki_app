@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'hesap_card.dart';
+import 'hesap_buton.dart';
 
 class SonucSayfasi extends StatelessWidget {
   @override
@@ -14,10 +15,15 @@ class SonucSayfasi extends StatelessWidget {
         children: <Widget>[
           Center(
             child: Expanded(
-                child: Container(
-              child: Text(
-                "Sonucunuz:",
-                style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.bold),
+                child: Center(
+              child: Container(
+                child: Text(
+                  "Sonucunuz:",
+                  style: TextStyle(
+                      fontSize: 40.0,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromRGBO(245, 224, 211, 1)),
+                ),
               ),
             )),
           ),
@@ -50,6 +56,11 @@ class SonucSayfasi extends StatelessWidget {
                   ],
                 ),
               )),
+          HesapButon(
+              onTab: () {
+                Navigator.pop(context);
+              },
+              baslik: "Yeniden Hesapla")
         ],
       ),
     );
