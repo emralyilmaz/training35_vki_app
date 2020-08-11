@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:training35_vki_app/hesaplama_alani.dart';
 import 'package:training35_vki_app/sonuc_sayfasi.dart';
 import 'hesap_card.dart';
 import 'icon_content.dart';
@@ -224,13 +225,21 @@ class _HesaplamaSayfasiState extends State<HesaplamaSayfasi> {
                 ],
               ),
             ),
-            HesapButon(
-                onTab: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return SonucSayfasi();
-                  }));
-                },
-                baslik: "Hesapla")
+            Center(
+              child: HesapButon(
+                  onTab: () {
+                    HesaplamaAlani hesap = HesaplamaAlani(boy: boy, kilo: kilo);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return SonucSayfasi(
+                        sonuc: hesap.hesapla(),
+                        sonucText: hesap.sonucGetir(),
+                        sonucYorum: hesap.yorumGetir(),
+                      );
+                    }));
+                  },
+                  baslik: "Hesapla"),
+            )
           ],
         ));
   }

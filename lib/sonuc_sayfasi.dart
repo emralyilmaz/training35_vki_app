@@ -3,6 +3,10 @@ import 'hesap_card.dart';
 import 'hesap_buton.dart';
 
 class SonucSayfasi extends StatelessWidget {
+  SonucSayfasi({this.sonuc, this.sonucText, this.sonucYorum});
+  final String sonuc;
+  final String sonucText;
+  final String sonucYorum;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,20 +40,20 @@ class SonucSayfasi extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      "Normal",
+                      sonucText,
                       style: TextStyle(
                           fontSize: 25.0,
                           color: Color.fromRGBO(77, 59, 59, 1),
                           fontWeight: FontWeight.bold),
                     ),
                     Text(
-                      "15",
+                      sonuc,
                       style: TextStyle(
                           fontSize: 100.0,
                           color: Color.fromRGBO(77, 59, 59, 1)),
                     ),
                     Text(
-                      "Yorum",
+                      sonucYorum,
                       style: TextStyle(
                           fontSize: 20.0, color: Color.fromRGBO(77, 59, 59, 1)),
                     ),

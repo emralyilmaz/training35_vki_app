@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'sonuc_sayfasi.dart';
 
 class HesapButon extends StatelessWidget {
   final Function onTab;
