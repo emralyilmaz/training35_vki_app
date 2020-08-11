@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:training35_vki_app/sonuc_sayfasi.dart';
 import 'hesap_card.dart';
 import 'icon_content.dart';
 import 'button_icon.dart';
@@ -27,7 +28,14 @@ class _HesaplamaSayfasiState extends State<HesaplamaSayfasi> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Center(child: Text("VKI Hesapla")),
+          title: Center(
+              child: Text(
+            "VKI Hesapla",
+            style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: Color.fromRGBO(245, 224, 211, 1)),
+          )),
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -214,6 +222,27 @@ class _HesaplamaSayfasiState extends State<HesaplamaSayfasi> {
                 ],
               ),
             ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return SonucSayfasi();
+                }));
+              },
+              child: Container(
+                child: Center(
+                  child: Text(
+                    "Hesapla",
+                    style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromRGBO(245, 224, 211, 1)),
+                  ),
+                ),
+                color: Color.fromRGBO(77, 59, 59, 1),
+                padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                width: double.infinity,
+              ),
+            )
           ],
         ));
   }
